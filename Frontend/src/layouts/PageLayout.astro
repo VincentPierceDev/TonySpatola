@@ -1,0 +1,38 @@
+---
+import NavBar from "../components/NavBar.astro";
+
+const currentPath = Astro.url.pathname;
+const {title, description} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- MOVE TO PROPER FILE -->
+		<!-- ADD "frame-ancestors 'self';" AND "upgrade-insecure-requests" to CSP -->
+		<!-- <meta http-equiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload"/> --->
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; media-src 'self';"/>
+		
+		<meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin"/>
+		<meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp"/>
+		<meta http-equiv="Cross-Origin-Resource-Policy" content="same-origin"/>
+		<!-- MOVE TO PROPER FILE -->
+
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description}/>
+	</head>
+	<body>
+		<header>
+			<NavBar/>
+		</header>
+		<main>
+			<slot/>
+		</main>
+		<footer>
+		</footer>
+	</body>
+</html>

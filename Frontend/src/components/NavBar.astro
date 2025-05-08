@@ -1,0 +1,236 @@
+---
+import "../css/Global.css";
+---
+
+<script type="module" src="/Scripts/NavBarScript.js"></script>
+
+<!-- add hrefs -->
+<div id="navbar-container" class="container">
+<div class="navbar-wrapper">
+	<nav id="navbar" role="navigation">
+		<a href="/" class="business-logo" aria-label="Personal logo and homepage button">
+			<picture>
+				<source
+					media="(max-width: 600px)"
+					srcset="/svgs/TonyMobLogo.svg"
+					width="125"
+					height="75"
+				/>
+				<source
+					media="(min-width: 601px)"
+					srcset="/svgs/TonyDeskLogo.svg"
+					width="300"
+					height="100"
+				/>
+				<img src="/svgs/TonyMobLogo.svg" alt="Personal logo image" width="300" height="100" />
+			</picture>
+		</a>
+
+		<!-- Mobile Nav Button -->		
+		<button id="menu-button" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation menu">
+			<svg viewBox="0 0 100 80" width="40" height="40">
+				<rect id="top-bar" class="top-bar" width="100" height="10" rx="5"/>
+				<rect id="mid-bar" class="mid-bar" y="30" width="100" height="10" rx="5"/>
+				<rect id="bot-bar" class="bot-bar" y="60" width="100" height="10" rx="5"/>
+			</svg>
+		</button>
+
+		<!-- Mobile and Desktop Links -->
+		<ul id="nav-menu" role="menu">
+			<li class="nav-link link1" role="menuitem">
+				<a href="/" aria-label="Go to Lorem Link"> My Story </a>
+			</li>
+            <li class="nav-link link2" role="menuitem">
+				<a href="/" aria-label="Go to Lorem Link"> Interests </a>
+			</li>
+			<li class="nav-link link3" role="menuitem">
+				<a href="/" aria-label="Go to Lorem Link"> La Familia </a>
+			</li>
+			<li class="nav-link link4" role="menuitem">
+				<a href="/" aria-label="Go to Lorem Link"> Gallery </a>
+			</li>
+		</ul>
+
+	</nav>
+</div>
+</div>
+
+<style>
+	.container{
+		max-width: 100%;
+		border-bottom: 5px solid black;
+	}
+
+	.navbar-wrapper {
+		max-width: 2000px;
+	}
+
+	.business-logo{
+		background: none;
+		user-select: none;
+		margin-left: 3rem;
+	}
+
+    .sticky-navbar{
+        position: sticky;
+        top: 0vh;
+        display: block;
+        z-index: 1;
+    }
+
+	.container,
+	nav {
+		background: var(--secondary-color);
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	button{
+		display: none;
+		z-index: 2;
+	}
+
+	ul {
+		display: flex;
+		gap: 3rem;
+		margin-right: 3rem;
+		list-style: none;
+		user-select: none;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        font-family: var(--primary-font);
+        font-size: 1.9em;
+        font-weight: bold;
+        text-shadow: -1px -1px 3px rgba(255, 255, 255, .8);
+	}
+
+	picture {
+		display: inline-block;
+		max-width: fit-content;
+		height: fit-content;
+        filter: invert(48%) sepia(88%) saturate(6137%) hue-rotate(334deg) brightness(101%) contrast(101%);
+        scale: 200%;
+	}
+
+	a{
+		color: var(--highlight-color);
+        text-decoration: none;
+	}
+
+	/*Mobile*/
+	@media(max-width: 850px){
+
+		.top-bar,
+		.bot-bar{
+			fill: var(--accent-color);
+			transition: .1s;
+			transition-delay: 0s, .32s, .32s;
+			transition-property: rotate, translate, scale;
+		}
+
+		.mid-bar{
+			fill: var(--accent-color);
+			scale: 100%;
+			transition: .125s;
+			transition-delay: .32s;
+			transition-property: scale, translate;
+		}
+
+		.top-bar-toggle{
+			fill: white;
+			translate: -.6rem 1rem;
+			scale: 80%;
+			rotate: 45deg;
+		}
+
+		.mid-bar-toggle{
+			scale: 0;
+			translate: -1rem .3rem;
+			transition: .125s;
+			transition-delay: 0s;
+			transition-property: scale, translate;
+		}
+
+		.bot-bar-toggle{
+			fill: white;
+			translate: -.5rem -1.2rem;
+			scale: 80%;
+			rotate: -45deg;
+		}
+
+		.top-bar-toggle,
+		.bot-bar-toggle{
+			transition: .1s;
+			transition-delay: 0s, .3s, .3s;
+			transition-property: translate, rotate, fill;
+		}
+
+		.business-logo{
+			margin-left: 1rem;
+		}
+
+		.opened-mobile-menu{
+			right: -5rem;
+			transition: .3s right ease;
+		}
+
+		ul{
+			display: flex;
+			flex-direction: column;
+			position: fixed;
+			right: -150%;
+			top: 0%;
+			height: 90vh;
+			align-items: flex-start;
+			z-index: 1;
+			background: var(--secondary-color);
+			padding-right: 5rem;
+			padding-left: 1rem;
+			padding-top: 6rem;
+			transition: .3s right ease;
+		}
+
+		button{
+			display: block;
+			position: relative;
+			background: none;
+			border: none;
+			margin: 1rem;
+			margin-right: 2rem;
+			scale: 150%;
+		}
+
+		rect{
+			transform-origin: center center;
+		}
+	}
+
+	@media(max-width: 600px){
+		button{
+			scale: 125%;
+		}
+	}
+
+	/* Mobile */
+
+
+	/*large desktop*/
+	@media(min-width: 2000px){
+		.container{
+			display: flex;
+			flex-shrink: 0;
+			justify-content: center;
+		}
+
+		.navbar-wrapper{
+			min-width: 2000px;
+		}
+	}
+
+	/*large desktop*/
+
+</style>

@@ -1,0 +1,24 @@
+
+:root{
+    --primary-color: #FF304F;
+    --secondary-color: #002651;
+    --accent-color: #775ADA;
+    --highlight-color: #28C7FA;
+
+    --primary-font: 'Chakra Petch', sans-serif;
+    --secondary-font: 'Inter', sans-serif;
+}
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    width: 100%;
+    
+    /*add background color*/
+}
