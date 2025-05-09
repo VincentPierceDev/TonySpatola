@@ -22,7 +22,7 @@ function HamburgerControl() {
 
     //add accessibility attribute for nav button menu
     if(window.screen.availWidth <= 800){
-        navMenu.setAttribute('aria-labeledby', "menu-button");
+        navMenu.setAttribute('aria-labelledby', "menu-button");
     }
 
 }
