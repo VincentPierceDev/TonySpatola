@@ -27,7 +27,9 @@ const {title, description} = Astro.props;
 	</head>
 	<body>
 		<header>
-			<NavBar/>
+			<div class="nav-bar-area">
+				<NavBar/>
+			</div>
 		</header>
 		<main>
 			<slot/>
@@ -36,3 +38,11 @@ const {title, description} = Astro.props;
 		</footer>
 	</body>
 </html>
+
+<style>
+	.nav-bar-area{
+		position: fixed;
+		width: 100%;
+		height: fit-content;
+	}
+</style>

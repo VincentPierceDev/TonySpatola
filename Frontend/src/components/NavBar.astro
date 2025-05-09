@@ -6,90 +6,138 @@ import "../css/Global.css";
 
 <!-- add hrefs -->
 <div id="navbar-container" class="container">
-<div class="navbar-wrapper">
-	<nav id="navbar" role="navigation">
-		<a href="/" class="business-logo" aria-label="Personal logo and homepage button">
-			<picture>
-				<source
-					media="(max-width: 600px)"
-					srcset="/svgs/TonyMobLogo.svg"
-					width="125"
-					height="75"
-				/>
-				<source
-					media="(min-width: 601px)"
-					srcset="/svgs/TonyDeskLogo.svg"
-					width="300"
-					height="100"
-				/>
-				<img src="/svgs/TonyMobLogo.svg" alt="Personal logo image" width="300" height="100" />
-			</picture>
-		</a>
+	<div class="navbar-wrapper">
+		<nav id="navbar" role="navigation">
+			<a
+				href="/"
+				class="business-logo"
+				aria-label="Personal logo and homepage button"
+			>
+				<picture>
+					<source
+						media="(max-width: 600px)"
+						srcset="/svgs/TonyMobLogo.svg"
+						width="125"
+						height="75"
+					/>
+					<source
+						media="(min-width: 601px)"
+						srcset="/svgs/TonyDeskLogo.svg"
+						width="300"
+						height="100"
+					/>
+					<img
+						src="/svgs/TonyMobLogo.svg"
+						alt="Personal logo image"
+						width="300"
+						height="100"
+					/>
+				</picture>
+			</a>
 
-		<!-- Mobile Nav Button -->		
-		<button id="menu-button" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation menu">
-			<svg viewBox="0 0 100 80" width="40" height="40">
-				<rect id="top-bar" class="top-bar" width="100" height="10" rx="5"/>
-				<rect id="mid-bar" class="mid-bar" y="30" width="100" height="10" rx="5"/>
-				<rect id="bot-bar" class="bot-bar" y="60" width="100" height="10" rx="5"/>
-			</svg>
-		</button>
+			<!-- Mobile Nav Button -->
+			<button
+				id="menu-button"
+				aria-controls="nav-menu"
+				aria-expanded="false"
+				aria-label="Toggle navigation menu"
+			>
+				<svg viewBox="0 0 100 80" width="40" height="40">
+					<rect id="top-bar" class="top-bar" width="100" height="10" rx="5"
+					></rect>
+					<rect
+						id="mid-bar"
+						class="mid-bar"
+						y="30"
+						width="100"
+						height="10"
+						rx="5"></rect>
+					<rect
+						id="bot-bar"
+						class="bot-bar"
+						y="60"
+						width="100"
+						height="10"
+						rx="5"></rect>
+				</svg>
+			</button>
 
-		<!-- Mobile and Desktop Links -->
-		<ul id="nav-menu" role="menu">
-			<li class="nav-link link1" role="menuitem">
-				<a href="/" aria-label="Go to Lorem Link"> My Story </a>
-			</li>
-            <li class="nav-link link2" role="menuitem">
-				<a href="/" aria-label="Go to Lorem Link"> Interests </a>
-			</li>
-			<li class="nav-link link3" role="menuitem">
-				<a href="/" aria-label="Go to Lorem Link"> La Familia </a>
-			</li>
-			<li class="nav-link link4" role="menuitem">
-				<a href="/" aria-label="Go to Lorem Link"> Gallery </a>
-			</li>
-		</ul>
-
-	</nav>
-</div>
+			<!-- Mobile and Desktop Links -->
+			<ul id="nav-menu" role="menu">
+				<li class="nav-link link1" role="menuitem">
+					<a href="/" aria-label="Go to home slash my story page"> My Story </a>
+				</li>
+				<li class="nav-link link2" role="menuitem">
+					<a href="/Interests" aria-label="Go to my interests page"> Interests </a>
+				</li>
+				<li class="nav-link link3" role="menuitem">
+					<a href="/Family" aria-label="Go to my family page"> La Familia </a>
+				</li>
+				<li class="nav-link link4" role="menuitem">
+					<a href="/Gallery" aria-label="Go to my gallery"> Gallery </a>
+				</li>
+			</ul>
+		</nav>
+	</div>
 </div>
 
 <style>
-	.container{
+	.container {
+		height: fit-content;
+		display: flex;
+		flex-shrink: 0;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		margin-top: 2rem;
+		transition: margin .2s ease;
+	}
+
+	.scroll-container-style{
+		margin-top: 0;
+		transition: margin .2s ease;
+	}
+
+	.scroll-nav-style{
 		max-width: 100%;
-		border-bottom: 5px solid black;
+		border-radius: 0;
+		padding-left: 5%;
+		padding-right: 5%;
+		transition-property: max-width, padding-left, padding-right;
+		background: rgba(0, 38, 81, .9);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		transition-duration: .2s, .2s, .2s;
 	}
 
 	.navbar-wrapper {
 		max-width: 2000px;
+		min-width: 100%;
 	}
 
-	.business-logo{
+	.business-logo {
 		background: none;
 		user-select: none;
 		margin-left: 3rem;
 	}
 
-    .sticky-navbar{
-        position: sticky;
-        top: 0vh;
-        display: block;
-        z-index: 1;
-    }
-
-	.container,
 	nav {
 		background: var(--secondary-color);
-	}
-
-	nav {
+		border-radius: 2rem;
+		margin: auto;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		max-width: 90%;
+		animation-duration: 30s;
+		animation-iteration-count: infinite;
+		animation-name: GlowChange;
+		box-shadow: 0px 0px 20px 3px var(--accent-color); /* fallback */
+		transition-property: max-width, padding-left, padding-right;
+		transition-duration: .2s, .2s, .2s;
 	}
 
-	button{
+	button {
 		display: none;
 		z-index: 2;
 	}
@@ -100,101 +148,124 @@ import "../css/Global.css";
 		margin-right: 3rem;
 		list-style: none;
 		user-select: none;
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-        font-family: var(--primary-font);
-        font-size: 1.9em;
-        font-weight: bold;
-        text-shadow: -1px -1px 3px rgba(255, 255, 255, .8);
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+		font-family: var(--primary-font);
+		font-size: 1.9em;
+		font-weight: bold;
+		text-shadow: -1px -1px 3px rgba(255, 255, 255, 0.8);
 	}
 
 	picture {
 		display: inline-block;
 		max-width: fit-content;
 		height: fit-content;
-        filter: invert(48%) sepia(88%) saturate(6137%) hue-rotate(334deg) brightness(101%) contrast(101%);
-        scale: 200%;
+		scale: 200%;
 	}
 
-	a{
+	a {
 		color: var(--highlight-color);
-        text-decoration: none;
+		text-decoration: none;
 	}
 
 	/*Mobile*/
-	@media(max-width: 850px){
-
+	@media (max-width: 850px) {
 		.top-bar,
-		.bot-bar{
+		.bot-bar {
 			fill: var(--accent-color);
-			transition: .1s;
-			transition-delay: 0s, .32s, .32s;
+			transition: 0.1s;
+			transition-delay: 0s, 0.32s, 0.32s;
 			transition-property: rotate, translate, scale;
 		}
 
-		.mid-bar{
+		.mid-bar {
 			fill: var(--accent-color);
 			scale: 100%;
-			transition: .125s;
-			transition-delay: .32s;
+			transition: 0.125s;
+			transition-delay: 0.32s;
 			transition-property: scale, translate;
 		}
 
-		.top-bar-toggle{
+		.top-bar-toggle {
 			fill: white;
-			translate: -.6rem 1rem;
+			translate: -0.6rem 1rem;
 			scale: 80%;
 			rotate: 45deg;
 		}
 
-		.mid-bar-toggle{
+		.mid-bar-toggle {
 			scale: 0;
-			translate: -1rem .3rem;
-			transition: .125s;
+			translate: -1rem 0.3rem;
+			transition: 0.125s;
 			transition-delay: 0s;
 			transition-property: scale, translate;
 		}
 
-		.bot-bar-toggle{
+		.bot-bar-toggle {
 			fill: white;
-			translate: -.5rem -1.2rem;
+			translate: -0.5rem -1.2rem;
 			scale: 80%;
 			rotate: -45deg;
 		}
 
 		.top-bar-toggle,
-		.bot-bar-toggle{
-			transition: .1s;
-			transition-delay: 0s, .3s, .3s;
+		.bot-bar-toggle {
+			transition: 0.1s;
+			transition-delay: 0s, 0.3s, 0.3s;
 			transition-property: translate, rotate, fill;
 		}
 
-		.business-logo{
+		.business-logo {
 			margin-left: 1rem;
 		}
 
-		.opened-mobile-menu{
-			right: -5rem;
-			transition: .3s right ease;
+		.navbar-solid{
+			background: var(--secondary-color);
 		}
 
-		ul{
+		.opened-mobile-menu {
+			scale: 100% 100%;
+			opacity: 1;
+			transition: 0.3s scale ease;
+		}
+
+		.raise-mobile-menu{
+			top: 6rem;
+		}
+
+		ul {
 			display: flex;
 			flex-direction: column;
 			position: fixed;
-			right: -150%;
-			top: 0%;
-			height: 90vh;
+			margin: auto;
+			margin-top: none;
+			overflow-y: scroll;
+			top: 8rem;
+			opacity: 0;
+			height: 20rem;
 			align-items: flex-start;
-			z-index: 1;
-			background: var(--secondary-color);
-			padding-right: 5rem;
-			padding-left: 1rem;
-			padding-top: 6rem;
-			transition: .3s right ease;
+			background: linear-gradient(var(--secondary-color), #00418b );
+			width: 90%;
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+			text-shadow: none;
+			scale: 100% 0%;
+			border-bottom-left-radius: 1rem;
+			border-bottom-right-radius: 1rem;
+			transform-origin: top;
+			animation-duration: 30s;
+			animation-iteration-count: infinite;
+			animation-name: GlowChangeMenu;
+			transition-property: scale, top, opacity;
+			transition-delay: 0s, 0s, .075s;
+			transition-duration: .3s, .2s;
 		}
 
-		button{
+		li{
+			margin: auto;
+		}
+
+		button {
 			display: block;
 			position: relative;
 			background: none;
@@ -204,33 +275,66 @@ import "../css/Global.css";
 			scale: 150%;
 		}
 
-		rect{
+		rect {
 			transform-origin: center center;
+		}
+
+		nav {
+			border-radius: 1rem;
+			border: none;
+			animation-name: GlowChangeMobile;
+			box-shadow: 0px 0px 10px 1.5px var(--accent-color); /* fallback */
+		}
+
+		picture{
+			padding-top: .2rem;
+		}
+
+		a{
+			color: white;
 		}
 	}
 
-	@media(max-width: 600px){
-		button{
+	@media (max-width: 600px) {
+
+		.raise-mobile-menu{
+			top: 5rem;
+		}
+
+		button {
 			scale: 125%;
+		}
+
+		ul{
+			top: 6rem;
 		}
 	}
 
 	/* Mobile */
 
-
 	/*large desktop*/
-	@media(min-width: 2000px){
-		.container{
-			display: flex;
-			flex-shrink: 0;
-			justify-content: center;
-		}
-
-		.navbar-wrapper{
+	@media (min-width: 2000px) {
+		.navbar-wrapper {
 			min-width: 2000px;
 		}
 	}
 
 	/*large desktop*/
+
+	@keyframes GlowChange {
+		0% {box-shadow: 0px 0px 20px 3px var(--accent-color);}
+		25% {box-shadow: 0px 0px 20px 3px var(--highlight-color);}
+		50% {box-shadow: 0px 0px 20px 3px var(--primary-color);}
+		75% {box-shadow: 0px 0px 20px 3px white;}
+		100% {box-shadow: 0px 0px 20px 3px var(--accent-color);}
+	}
+
+	@keyframes GlowChangeMobile {
+		0% {box-shadow: 0px 0px 10px 1.5px var(--accent-color);}
+		25% {box-shadow: 0px 0px 10px 1.5px var(--highlight-color);}
+		50% {box-shadow: 0px 0px 10px 1.5px var(--primary-color);}
+		75% {box-shadow: 0px 0px 10px 1.5px white;}
+		100% {box-shadow: 0px 0px 10px 1.5px var(--accent-color);}
+	}
 
 </style>

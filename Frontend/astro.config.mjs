@@ -10,7 +10,7 @@ export default defineConfig({
     devToolbar: {
         enabled: false
     },
-
+    site: 'https://vincentpiercedev.github.io',
     base: '/',
     output: 'static'
 });
