@@ -11,6 +11,6 @@ export default defineConfig({
         enabled: false
     },
     site: 'https://vincentpiercedev.github.io',
-    base: '/',
+    base: '/TonySpatola',
     output: 'static'
 });
