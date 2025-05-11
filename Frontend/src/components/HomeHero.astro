@@ -1,0 +1,132 @@
+---
+import { getImage } from "astro:assets";
+import DeskHeroBG from "../assets/TonyHomeHeroDesk.png";
+import MobHeroBG from "../assets/TonyHomeHeroMob.png";
+import "../css/Global.css";
+
+const mobileImg = await getImage({
+	src: MobHeroBG,
+	format: "webp",
+	width: MobHeroBG.width / 2
+});
+
+const deskImg = await getImage({
+	src: DeskHeroBG,
+	format: "webp",
+	width: DeskHeroBG.width / 2
+})
+---
+
+
+<section id="home-hero-section">
+		<div class="hero-wrapper">
+			<div class="container">
+				<span class="body-text-L intro-text">My name is</span>
+		 		<h1 class="hero-heading-M">Tony<br/>Spatola</h1>
+                <div class="traversal-text-container">
+		 		    <span class="hero-heading-XL traversal-text"><strong>This is my story</strong></span>
+                </div>
+			</div>
+		 	<div class="bg-image-wrapper">
+				<picture>
+					<source media="(max-width: 850px)" srcset={mobileImg.src}/>
+					<source media="(min-width: 851px)" srcset={deskImg.src}/>
+					<img src={mobileImg.src} alt="background image"/>
+				</picture>
+		 	</div>
+		</div>
+</section>
+
+<style>
+    .bg-image-wrapper {
+		position: absolute;
+		width: 100%;
+		height: 155.5vh;
+		background: linear-gradient(
+			to bottom,
+			
+		);
+	}
+
+	.bg-image-wrapper picture img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		opacity: 50%;
+		user-select: none;
+		-webkit-user-drag: none;
+        mask-image: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 1) 0% 80%,
+			rgba(255, 255, 255, 0.8) 90%,
+			rgba(255, 255, 255, 0) 100%
+            );
+		
+	}
+
+	.container{
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		left: 0;
+		top: 0;
+		z-index: 1;
+		padding-top: 15rem;
+		padding-left: 5%;
+        padding-right: 5%;
+	}
+
+	.intro-text {
+		color: var(--accent-color);
+		text-transform: capitalize;
+        font-weight: 900;
+        opacity: 80%;
+	}
+
+    .traversal-text-container{
+        display: flex;
+        width: 100%;
+        margin-top: 25rem;
+        height: fit-content;
+        justify-content: center;
+    }
+
+	.traversal-text {	
+		color: var(--highlight-color);
+		text-transform: uppercase;
+        opacity: 80%;
+	}
+	
+	#home-hero-section {
+		position: relative;
+		height: 155.5vh;
+	}
+
+	h1 {
+		color: white;
+		text-transform: uppercase;
+    }
+
+    @media(max-width: 850px)
+    {
+        .container{
+            padding-top: 10rem;
+        }
+
+        .intro-text{
+            color: black;
+        }
+
+        .traversal-text-container{
+            margin-top: 35rem;
+            text-align: center;
+        }
+
+        h1, .intro-text, .traversal-text{
+            opacity: 100%;
+        }
+    }
+</style>
