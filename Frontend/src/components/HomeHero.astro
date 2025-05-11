@@ -3,11 +3,12 @@ import { getImage } from "astro:assets";
 import DeskHeroBG from "../assets/TonyHomeHeroDesk.png";
 import MobHeroBG from "../assets/TonyHomeHeroMob.png";
 import "../css/Global.css";
+import "../css/Utility.css";
 
 const mobileImg = await getImage({
 	src: MobHeroBG,
 	format: "webp",
-	width: MobHeroBG.width / 2
+	width: MobHeroBG.width / 2,
 });
 
 const deskImg = await getImage({
@@ -17,20 +18,23 @@ const deskImg = await getImage({
 })
 ---
 
+<script type="module" src="/TonySpatola/Scripts/FadeInEffect.js"></script>
 
 <section id="home-hero-section">
 		<div class="hero-wrapper">
 			<div class="container">
-				<span class="body-text-L intro-text">My name is</span>
-		 		<h1 class="hero-heading-M">Tony<br/>Spatola</h1>
+				<div class="heading-text">
+					<span class="body-text-L intro-text">My name is</span>
+		 			<h1 class="hero-heading-M">Tony<br/>Spatola</h1>
+				</div>
                 <div class="traversal-text-container">
-		 		    <span class="hero-heading-XL traversal-text"><strong>This is my story</strong></span>
+		 		    <span class="hero-heading-L traversal-text fade-in-element"><strong>This is my story</strong></span>
                 </div>
 			</div>
 		 	<div class="bg-image-wrapper">
 				<picture>
-					<source media="(max-width: 850px)" srcset={mobileImg.src}/>
-					<source media="(min-width: 851px)" srcset={deskImg.src}/>
+					<source media="(max-width: 1100px)" srcset={mobileImg.src}/>
+					<source media="(min-width: 1101px)" srcset={deskImg.src}/>
 					<img src={mobileImg.src} alt="background image"/>
 				</picture>
 		 	</div>
@@ -42,10 +46,6 @@ const deskImg = await getImage({
 		position: absolute;
 		width: 100%;
 		height: 155.5vh;
-		background: linear-gradient(
-			to bottom,
-			
-		);
 	}
 
 	.bg-image-wrapper picture img {
@@ -68,6 +68,9 @@ const deskImg = await getImage({
 	}
 
 	.container{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 		position: absolute;
 		height: 100%;
 		width: 100%;
@@ -75,6 +78,7 @@ const deskImg = await getImage({
 		top: 0;
 		z-index: 1;
 		padding-top: 15rem;
+		padding-bottom: 1rem;
 		padding-left: 5%;
         padding-right: 5%;
 	}
@@ -89,7 +93,6 @@ const deskImg = await getImage({
     .traversal-text-container{
         display: flex;
         width: 100%;
-        margin-top: 25rem;
         height: fit-content;
         justify-content: center;
     }
@@ -97,7 +100,11 @@ const deskImg = await getImage({
 	.traversal-text {	
 		color: var(--highlight-color);
 		text-transform: uppercase;
-        opacity: 80%;
+	}
+
+	h1, .intro-text{
+		animation-name: LoadTextDesk;
+		animation-duration: 1s;
 	}
 	
 	#home-hero-section {
@@ -108,6 +115,7 @@ const deskImg = await getImage({
 	h1 {
 		color: white;
 		text-transform: uppercase;
+		opacity: 80%;
     }
 
     @media(max-width: 850px)
@@ -121,12 +129,37 @@ const deskImg = await getImage({
         }
 
         .traversal-text-container{
-            margin-top: 35rem;
             text-align: center;
         }
 
-        h1, .intro-text, .traversal-text{
-            opacity: 100%;
+        h1, .intro-text{
+			opacity: 100%;
+            animation-name: LoadTextMob;
+			animation-duration: 1s;
+			animation-direction: normal;
+			animation-iteration-count: 1;
         }
     }
+
+	@keyframes LoadTextDesk{
+		from {
+			translate: 0 5px;
+			opacity: 0%;
+		}
+		to {
+			translate: 0 0;
+			opacity: 80%;
+		}
+	}
+
+	@keyframes LoadTextMob{
+		from {
+			translate: 0 5px;
+			opacity: 0%;
+		}
+		to {
+			translate: 0 0;
+			opacity: 100%;
+		}
+	}
 </style>

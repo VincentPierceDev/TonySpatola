@@ -8,57 +8,20 @@ import "../css/Global.css";
 <div id="navbar-container" class="container">
 	<div class="navbar-wrapper">
 		<nav id="navbar" role="navigation">
-			<a
-				href="/TonySpatola/"
-				class="business-logo"
-				aria-label="Personal logo and homepage button"
-			>
+			<a href="/TonySpatola/" class="business-logo" aria-label="Personal logo and homepage button">
 				<picture>
-					<source
-						media="(max-width: 600px)"
-						srcset="/TonySpatola/svgs/TonyMobLogo.svg"
-						width="125"
-						height="75"
-					/>
-					<source
-						media="(min-width: 601px)"
-						srcset="/TonySpatola/svgs/TonyDeskLogo.svg"
-						width="300"
-						height="100"
-					/>
-					<img
-						src="/TonySpatola/svgs/TonyMobLogo.svg"
-						alt="Personal logo image"
-						width="300"
-						height="100"
-					/>
+					<source media="(max-width: 600px)" srcset="/TonySpatola/svgs/TonyMobLogo.svg" width="125" height="75"/>
+					<source media="(min-width: 601px)" srcset="/TonySpatola/svgs/TonyDeskLogo.svg" width="300" height="100"/>
+					<img src="/TonySpatola/svgs/TonyMobLogo.svg" alt="Personal logo image" width="300" height="100"/>
 				</picture>
 			</a>
 
 			<!-- Mobile Nav Button -->
-			<button
-				id="menu-button"
-				aria-controls="nav-menu"
-				aria-expanded="false"
-				aria-label="Toggle navigation menu"
-			>
+			<button id="menu-button" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation menu">
 				<svg viewBox="0 0 100 80" width="40" height="40">
-					<rect id="top-bar" class="top-bar" width="100" height="10" rx="5"
-					></rect>
-					<rect
-						id="mid-bar"
-						class="mid-bar"
-						y="30"
-						width="100"
-						height="10"
-						rx="5"></rect>
-					<rect
-						id="bot-bar"
-						class="bot-bar"
-						y="60"
-						width="100"
-						height="10"
-						rx="5"></rect>
+					<rect id="top-bar" class="top-bar" width="100" height="10" rx="5"/>
+					<rect id="mid-bar" class="mid-bar" y="30" width="100" height="10" rx="5"/>
+					<rect id="bot-bar" class="bot-bar" y="60" width="100" height="10" rx="5"/>
 				</svg>
 			</button>
 
@@ -143,7 +106,6 @@ import "../css/Global.css";
 		box-shadow: 0px 0px 20px 3px var(--accent-color); /* fallback */
 		transition-property: max-width, padding-left, padding-right;
 		transition-duration: 0.2s, 0.2s, 0.2s;
-		overflow: hidden;
 	}
 
 	button {
@@ -168,7 +130,6 @@ import "../css/Global.css";
 		display: inline-block;
 		max-width: fit-content;
 		height: fit-content;
-		scale: 200%;
 	}
 
 	a {
@@ -238,7 +199,10 @@ import "../css/Global.css";
 		}
 
 		.raise-mobile-menu {
-			top: 6rem;
+			top: 5rem;
+			margin: 0;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
 		}
 
 		ul {
@@ -246,7 +210,7 @@ import "../css/Global.css";
 			flex-direction: column;
 			position: fixed;
 			margin: auto;
-			margin-top: none;
+			margin-top: 0;
 			overflow-y: scroll;
 			top: 8rem;
 			opacity: 0;
@@ -258,8 +222,7 @@ import "../css/Global.css";
 			padding-bottom: 2rem;
 			text-shadow: none;
 			scale: 100% 0%;
-			border-bottom-left-radius: 1rem;
-			border-bottom-right-radius: 1rem;
+			border-radius: 1rem;
 			transform-origin: top;
 			animation-duration: 30s;
 			animation-iteration-count: infinite;
@@ -320,16 +283,22 @@ import "../css/Global.css";
 	/* Mobile */
 
 	/* Laptop */
-	@media (max-width: 1200px) and (min-width: 851px) {
+	@media (max-width: 1200px) {
 		ul {
 			gap: 2rem;
 			font-size: 1rem;
 			margin-top: 1rem;
 			margin-bottom: 1rem;
 		}
+	}
 
-		picture {
-			scale: 175%;
+	@media (max-width: 900px) and (min-width: 851px) {
+		ul{
+			font-size: .9rem;
+		}
+
+		.business-logo{
+			margin-left: .2rem;
 		}
 	}
 	/* Laptop */

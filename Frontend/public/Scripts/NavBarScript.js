@@ -13,15 +13,14 @@ function HamburgerControl() {
         return;
 
     //mobile hamburger menu control
-    hamburgerMenu.addEventListener('click', () => {
-        const expanded = hamburgerMenu.getAttribute('aria-expanded') === 'true';
-        ToggleButton(hamburgerMenu, expanded);
-        MobileMenuControl(navMenu, navBar, expanded);
-    })
-    
-
-    //add accessibility attribute for nav button menu
     if(window.screen.availWidth <= 800){
+        hamburgerMenu.addEventListener('click', () => {
+            const expanded = hamburgerMenu.getAttribute('aria-expanded') === 'true';
+            ToggleButton(hamburgerMenu, expanded);
+            MobileMenuControl(navMenu, navBar, expanded);
+        })
+
+        //add accessibility attribute for nav button menu
         navMenu.setAttribute('aria-labelledby', "menu-button");
     }
 
