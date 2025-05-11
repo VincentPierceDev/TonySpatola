@@ -1,0 +1,132 @@
+---
+const {backgroundColor, headingColor} = Astro.props;
+import Image from 'astro/components/Image.astro';
+import '../css/Global.css';
+
+import TonyRock from '../assets/TonyRock.png';
+
+---
+
+<script type="module" src="/TonySpatola/Scripts/FadeInEffect.js"></script>
+<script type="module" src="/TonySpatola/Scripts/RaiseFadeInEffect.js"></script>
+
+<section>
+    <h2 class="heading-L">Early life</h2>
+    <h3 class="heading-S">"The beginning"</h3>
+    <div class="content-container">   
+		<p class="top-grid-text body-text-M fade-raise-element">I grew up and planted my early roots in a small community in <strong class="body-text-M">East Texas.</strong> Situated between two popular lakes, <strong class="body-text-M">Lake Fork</strong> and <strong class="body-text-M">Lake Tawakoni</strong> the location was a perfect match for my early life. Not too secluded, but not too bustling.</p>
+    	<p class="bottom-grid-text body-text-M fade-raise-element">I was just the average 2000's kid; I went to school, made friends, and of course enjoyed video games. As I have grown older my hobbies and interests have naturally shifted, but I still hold an endowed love towards the interests that formed me into what I am today!</p>
+        <div class="image-container">
+            <Image class:list={"section-img fade-in-element"} src={TonyRock} alt="Posing photo" width={TonyRock.width / 2}/>
+        </div>
+    </div>
+<section>
+
+<style define:vars={{backgroundColor, headingColor}}>
+    /*Mobile*/
+    @media (min-width: 0px){
+        .content-container{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            margin-top: 3rem;
+            row-gap: 1rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            max-width: 1920px;
+        }
+
+        .image-container{
+            max-width: 75%;
+            height: 100%;
+            margin: auto;
+        }
+
+        .section-img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+		p, strong{
+			text-wrap: pretty;
+			color: white;
+		}
+
+        section{
+            height: fit-content;
+            width: 100%;
+            background: var(--backgroundColor);
+            padding-top: 5rem;
+        }
+
+        h2, h3{
+            text-align: center;
+            color: white;
+            text-transform: capitalize;
+        }
+
+        h3{
+            margin-bottom: 1rem;
+        }
+    }
+
+    @media (min-width: 850px){
+    }
+
+    /* Mobile */
+
+    /* Tablet / Laptop */
+    @media(min-width: 1000px)
+    {
+        .content-container{
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            margin: auto;
+            margin-right: 3rem;
+        }
+
+        .image-container{
+            max-width: 30rem;
+            grid-column: 1;
+            grid-row: 1 / span 2;
+        }
+
+        .top-grid-text{
+            grid-column: 2;
+			grid-row: 1;
+            margin: auto;
+        }
+
+        .bottom-grid-text{
+            grid-column: 2;
+            grid-row: 2;
+            margin: auto;
+        }
+
+        h2, h3{
+            color: var(--headingColor);
+        }
+
+       
+    }
+
+    @media(min-width: 1600px)
+    {
+
+    }
+
+    /* Tablet / Laptop */
+
+    /* Desktop */
+    @media(min-width: 1601px)
+    {
+    }
+
+    @media(min-width: 2000px)
+    {
+
+    }
+    /* Desktop */
+
+<style>

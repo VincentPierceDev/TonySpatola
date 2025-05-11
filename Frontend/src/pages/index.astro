@@ -1,7 +1,7 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
 import Hero from "../components/HomeHero.astro";
-import BasicSection from "../components/ImageTextSection.astro";
+import BasicSection from "../components/EarlyLifeSection.astro";
 ---
 
 
@@ -9,27 +9,23 @@ import BasicSection from "../components/ImageTextSection.astro";
 <PageLayout title="My Story" description="Everything that defines me!">
 	<Hero/>
 	<BasicSection backgroundColor={`#851828`} headingColor={`var(--secondary-color)`}>
-		<div class="text-box">
-			<p class="body-text-M">I grew up and planted my early roots in a small community in <strong class="body-text-M">East Texas.</strong> Situated between two popular lakes, <strong class="body-text-M">Lake Fork</strong> and <strong class="body-text-M">Lake Tawakoni</strong> the location was a perfect match for my early life. Not too secluded, but not too bustling.</p>
-    		<p class="body-text-M">I was just the average 2000's kid; I went to school, made friends, and of course enjoyed video games. As I have grown older my hobbies and interests have naturally shifted, but I still hold an endowed love towards the interests that formed me into what I am today!</p>
-		</div>
+	
 	</BasicSection>
 </PageLayout>
 
 <style>
 	/*Mobile*/
     @media (min-width: 0px){
-        .text-box{
-			display: flex;
-			flex-direction: column;
-			gap: 1rem;
-            margin-left: 1rem;
-            margin-right: 1rem;
-        }
-
-		p, strong{
-			text-wrap: pretty;
-			color: white;
-		}
+      
     }
+
+	@media (min-width: 850px){
+		
+	}
+	/* Mobile */
+
+	/* desktop */
+	@media (min-width: 1601px){
+		
+	}
 </style>
