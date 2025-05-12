@@ -59,12 +59,12 @@ html, body{
 }
 
 .heading-M{
-    font-size: 8rem;
-    font-weight: 500;
+    font-size: clamp(2.5rem, 7.25vw, 7.75rem);
+    font-weight: 600;
     font-style: normal;
     font-family: var(--primary-font);
     line-height: 1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
 }
 
 .heading-S{
