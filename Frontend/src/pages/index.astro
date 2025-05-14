@@ -11,14 +11,32 @@ import HomeGallery from "../components/HomeGallery.astro";
 <PageLayout title="My Story" description="Everything that defines me!">
 	<Hero/>
 	<BasicSection backgroundColor={`#851828`} headingColor={`var(--secondary-color)`}/>	
-		<CurrentStandingSection/>
-		<HomeGallery/>
+		<div class="paralax-container">
+			<CurrentStandingSection/>
+			<HomeGallery/>
+		</div>
+		<div class="spacer">
+			
+		</div>
 </PageLayout>
 
 <style>
 	/*Mobile*/
     @media (min-width: 0px){
-      
+      .paralax-container{
+		animation: scroll-watcher view();
+		z-index: 3;
+		box-shadow: 0px 5px 25px 10px rgba(0, 0, 0, .25);
+	  }
+
+	  .spacer{
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		left: 0;
+		top: 500%;
+		z-index: 0;
+	  }
     }
 
 	@media (min-width: 850px){
@@ -29,5 +47,9 @@ import HomeGallery from "../components/HomeGallery.astro";
 	/* desktop */
 	@media (min-width: 1601px){
 		
+	}
+
+	@keyframes scroll-watcher{
+		to {translate: 0 -300px;}
 	}
 </style>

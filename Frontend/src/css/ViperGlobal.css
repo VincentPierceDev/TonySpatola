@@ -20,6 +20,23 @@
     --section-padding: clamp(3.75rem, 7.75vw, 6.25rem) 1rem;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* make padding not effect dimensions */
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+/* all sections will have this */
+.vp-section{
+    height: fit-content;
+    width: 100%;
+    padding: var(--section-padding);
+}
+
 .v-topping-text{
     font-family: var(--primary-font);
     font-size: var(--topping-font-size);
@@ -53,5 +70,14 @@
     width: 100%;
     max-width: 40.625rem;
     margin: 0;
-    color: var(--body-text-color-dark);
+}
+
+.v-text{
+    font-family: var(--primary-font);
+    font-size: var(--body-font-size);
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-wrap: pretty;
+    width: 100%;
+    margin: 0;
 }
