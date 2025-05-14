@@ -2,32 +2,23 @@
 import PageLayout from "../layouts/PageLayout.astro";
 import Hero from "../components/HomeHero.astro";
 import BasicSection from "../components/EarlyLifeSection.astro";
-import IntereseSection from "../components/HomeInterestsSection.astro";
-import HomeInterestsSection from "../components/HomeInterestsSection.astro";
+import CurrentStandingSection from "../components/CurrentStandingSection.astro";
+import HomeGallery from "../components/HomeGallery.astro";
 ---
 
 
 
 <PageLayout title="My Story" description="Everything that defines me!">
 	<Hero/>
-	<BasicSection backgroundColor={`#851828`} headingColor={`var(--secondary-color)`}/>
-	<div class="paralax-container">
-		<HomeInterestsSection/>
-	</div>
+	<BasicSection backgroundColor={`#851828`} headingColor={`var(--secondary-color)`}/>	
+		<CurrentStandingSection/>
+		<HomeGallery/>
 </PageLayout>
 
 <style>
 	/*Mobile*/
     @media (min-width: 0px){
-      .paralax-container{
-		z-index: -5;
-		animation: scroll-watcher linear;
-		animation-timeline: view();
-	  }
-
-	  @keyframes scroll-watcher{
-		to {translate: 0 -200px;}
-	  }
+      
     }
 
 	@media (min-width: 850px){

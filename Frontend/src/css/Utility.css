@@ -17,3 +17,8 @@
     opacity: 1;
     translate: 0 0;
 }
+
+.paralax-container{
+	animation: scroll-watcher linear;
+	animation-timeline: view();
+}

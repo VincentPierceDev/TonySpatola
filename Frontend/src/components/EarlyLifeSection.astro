@@ -2,6 +2,7 @@
 const {backgroundColor, headingColor} = Astro.props;
 import Image from 'astro/components/Image.astro';
 import '../css/Global.css';
+import '../css/Utility.css';
 
 import TonyRock from '../assets/TonyRock.png';
 
@@ -125,7 +126,9 @@ import TonyRock from '../assets/TonyRock.png';
 
     @media(min-width: 2000px)
     {
-
+        .content-container{
+            margin: auto;
+        }
     }
     /* Desktop */
 

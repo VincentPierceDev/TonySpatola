@@ -1,0 +1,135 @@
+---
+import '../css/Global.css';
+
+import Image from 'astro/components/Image.astro';
+import TonyPoint from '../assets/TonyPoint.png';
+import TonyRock from '../assets/TonyRock.png';
+
+import '../css/Utility.css';
+---
+
+
+<section class="paralax-container">
+    <h2 class="heading-M">Current Standings</h2>
+    <div class="content-container">
+        <div class="flex">
+		    <p class="body-text-M text fade-raise-element">Nowadays I remain in my domain and live a simple yet humble life. Currently I help my family out with our house cleaning service. The experience gained from this keeps my spirits high and keeps me pushing forward.</p>
+            <div class="image-container">
+                <Image class:list={"section-img too-vibrant-image fade-in-element border-img"} src={TonyPoint} alt="Pointing action photo" width={TonyPoint.width / 2}/>
+            </div>
+        </div>
+        <div class="flex flex-reverse">
+    	    <p class="body-text-M text fade-raise-element">As I have slowly grown older, the "country life" has started to wear off. I'm not much of a political individual, but the city life is a perfect match for my modern and progress lifestyle and needs. Eventually I plan on expanding my horizons and rellocating to the big city to tackle opportunities that come my way.</p>    
+            <div class="image-container">
+                <Image class:list={"section-img fade-in-element"} src={TonyRock} alt="Posing on rock photo" width={TonyRock.width / 2}/>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+
+@media(min-width: 0px){
+
+     .content-container{
+        row-gap: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        max-width: 1920px;
+    }
+
+    
+
+    .image-container{
+        max-width: 75%;
+        height: 100%;
+        margin: auto;
+    }
+
+    .section-img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .border-img{
+        border: 5px solid var(--accent-color);
+    }
+
+    .flex{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 3rem;
+    }
+
+    .flex-reverse{
+        margin-top: 3rem;
+    }
+
+    .text{
+        max-width: 50rem;
+    }
+
+    .too-vibrant-image{
+        filter: saturate(70%);
+    }
+
+    p, strong{
+		text-wrap:balance;
+		color: var(--secondary-color);
+	}
+
+    section{
+        height: fit-content;
+        width: 100%;
+        background: #F7F7F7;
+        box-shadow: 0 -3px 20px 3px rgba(0, 0, 0, .25);
+        z-index: 999;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    h2{
+        text-align: center;
+        color: var(--primary-color);
+    }
+}
+
+@media(min-width: 1000px){
+    .image-container{
+        min-width: 17rem;
+        max-width: 20rem;
+        margin: auto;
+    }
+
+    .content-container{
+        margin: auto;
+        margin-top: 3rem;
+        margin-left: 3rem;
+        margin-right: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .flex{
+        flex-direction: row;
+    }
+
+    .flex-reverse{
+        flex-direction: row-reverse;
+    }
+}
+
+@media(min-width: 2000px)
+{
+    .content-container{
+        margin: auto;
+    }
+}
+
+
+@keyframes scroll-watcher{
+	to {translate: 0 -300px;}
+}
+
+</style>

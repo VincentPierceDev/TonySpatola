@@ -1,0 +1,204 @@
+---
+import { getImage } from 'astro:assets';
+import '../css/Utility.css';
+import '../css/ViperGlobal.css';
+
+import LeftHalfTopPhoto from '../assets/TonyPoint.png';
+import RightHalfTopPhoto from '../assets/TonyPoint.png';
+import FullTopPhoto from '../assets/TonyPoint.png';
+import FullBotPhoto from '../assets/TonyPoint.png';
+import LeftHalfBotPhoto from '../assets/TonyPoint.png';
+import RightHalfBotPhoto from '../assets/TonyPoint.png';
+
+const {imageAltText = "gallery photo", halfImageQuality = "medium", fullImageQuality = "low", widthDivisor=6} = Astro.props;
+
+//these initials coorelate to the imports above
+const LHTP = await getImage({
+	src: LeftHalfTopPhoto,
+	format: "webp",
+	width: LeftHalfTopPhoto.width / widthDivisor,
+    quality: halfImageQuality
+});
+
+const RHTP = await getImage({
+	src: RightHalfTopPhoto,
+	format: "webp",
+	width: RightHalfTopPhoto.width / widthDivisor,
+    quality: halfImageQuality
+})
+
+const FTP = await getImage({
+    src: FullTopPhoto,
+    format: "webp",
+    width: FullTopPhoto.width / widthDivisor,
+    quality: fullImageQuality
+})
+
+const FBP = await getImage({
+    src: FullBotPhoto,
+    format: "webp",
+    width: FullBotPhoto.width / widthDivisor,
+    quality: fullImageQuality
+})
+
+const LHBP = await getImage({
+	src: LeftHalfBotPhoto,
+	format: "webp",
+	width: LeftHalfBotPhoto.width / widthDivisor,
+    quality: halfImageQuality
+})
+
+const RHBP = await getImage({
+	src: RightHalfBotPhoto,
+	format: "webp",
+	width: RightHalfBotPhoto.width / widthDivisor,
+    quality: halfImageQuality
+})
+
+const images = [LHTP, RHTP, FTP, FBP, LHBP];
+---
+
+
+<section id="home-gallery">
+    <div class="container">
+        <div class="top-content">
+            <div class="flex heading-wrapper">
+                <span class="v-topping-text">Various Photos</span>
+                <h2 class="v-title">View My Gallery</h2>
+            </div>
+            <div class="flex subheading-wrapper">
+                <p class="v-subheading-text">Here are various photos of me and my beloved family. These are mostly from a short vacation we went on, but there are some variety photos sprinkled in as well. Check them out below and view more in my gallery!</p>    
+                <a class="v-subheading-text link" href="/Gallery" aria-label="View photo gallery">
+                    View More
+                    <img class="arrow" src="/TonySpatola/svgs/LinkArrow.svg" alt="Personal logo image" width="16" height="16" loading="lazy"/>
+                </a>
+            </div>
+        </div>
+        <div class="bottom-content">
+            {
+                images.map((image, index)=>(
+                    <div id={`wrapper-${index}`}>
+                        <img class="section-img" src={image.src} alt={imageAltText} loading={"lazy"} width={image.options.width}/>
+                    </div>
+                ))
+            }
+            
+        </div>
+    </div>
+</section>
+
+<style>
+    @media(min-width: 0px){
+        
+        /* Section Styling */
+        #home-gallery{
+            height: fit-content;
+            width: 100%;
+            background: white;
+            padding: var(--section-padding);
+        }
+
+        /* Container Styling */
+        .container{
+            display: flex;
+            flex-direction: column;
+            gap: clamp(3rem, 6.4vw, 4rem);
+            width: 100%;
+
+            /*300px on the sides at 1920px screen width*/
+            max-width: 80.5rem; 
+            margin: auto;
+        }
+
+        /* Content Stylings */
+        .top-content{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+           
+
+            .flex{
+               display: flex;
+               flex-direction: column;
+            }
+
+            .heading-wrapper{
+                min-width: 16.75rem;
+                gap: 4px;
+                flex: 1;
+            }
+
+            .subheading-wrapper{
+                flex: 1;
+            }
+
+            a{
+                display: inline-block;
+                width: fit-content;
+                margin-top: 24px;
+                border-bottom: 3px solid black;
+                text-decoration: none;
+            }
+        }
+
+        .bottom-content{
+            display: grid;
+
+            /* Make the rows be the size the pictures need for height*/
+            grid-template-rows: repeat(4, clamp(7.25rem, 16vw, 13.125rem));
+            row-gap: clamp(.5rem, 5vw, 1.25rem);
+            column-gap: clamp(.5rem, 5vw, 1.25rem);
+
+            .section-img{
+                width: 100%;
+                height: 100%;
+                aspect-ratio: 1;
+                object-fit: cover;
+            }
+
+        }
+
+      
+
+        /* Adding wrapper ids out here, because a lot is happening in the bottom-container in the different 
+        medias, check the .bottom-content for the image wrappers themselves*/
+        #wrapper-0{
+            grid-row: 1 / span 3;
+            grid-column: 1;
+        }
+
+        #wrapper-1{
+            grid-row: 1;
+            grid-column: 2;
+        }
+
+        #wrapper-2{
+            grid-row: 2 / span 2;
+            grid-column: 2;
+        }
+
+        #wrapper-3{
+            grid-row: 4;
+            grid-column: 2;
+        }
+
+        #wrapper-4{
+            grid-row: 4;
+            grid-column: 1;
+        }
+
+        #wrapper-5{
+            grid-row: 4;
+            grid-column: 2;
+        }
+    }
+
+    @media(min-width: 768px){
+        .top-content{
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+    }
+</style>

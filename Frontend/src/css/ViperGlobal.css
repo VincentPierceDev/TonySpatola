@@ -1,0 +1,57 @@
+
+:root {
+    --primary-color: #FF304F;
+    --primary-color-light: #ff647b;
+    --secondary-color: #002651;
+    --secondary-color-light: #31475f;
+    --accent-color: #775ADA;
+    --highlight-color: #28C7FA;
+    --heading-text-color-dark: #1a1a1a;
+    --body-text-color-dark: #4e4b66;
+    --body-text-color-light: #fafbfc;
+
+    --primary-font: 'Verdana', sans-serif;
+    --secondary-font: 'Inter', sans-serif;
+    --topping-font-size: clamp(0.8125rem, 1.6vw, 1rem);
+    --heading-font-size: clamp(1.9375rem, 3.9vw, 3.0625rem);
+    --body-font-size: 1.25rem;
+
+    /*360px - 1920px top / bot alignment*/
+    --section-padding: clamp(3.75rem, 7.75vw, 6.25rem) 1rem;
+}
+
+.v-topping-text{
+    font-family: var(--primary-font);
+    font-size: var(--topping-font-size);
+    line-height: 1.25;
+    letter-spacing: .01em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: 0.25rem;
+    display: block;
+    text-align: inherit;
+}
+
+.v-title{
+    font-family: var(--primary-font);
+    font-size: var(--heading-font-size);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-weight: 900;
+    color: var(--heading-text-color-dark);
+    position: relative;
+    text-align: inherit;
+}
+
+.v-subheading-text{
+    font-family: var(--secondary-font);
+    font-size: var(--body-font-size);
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-wrap: pretty;
+    width: 100%;
+    max-width: 40.625rem;
+    margin: 0;
+    color: var(--body-text-color-dark);
+}
