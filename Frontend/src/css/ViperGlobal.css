@@ -79,5 +79,12 @@ body {
     letter-spacing: normal;
     text-wrap: pretty;
     width: 100%;
+    max-width: 40.625rem;
     margin: 0;
+}
+
+.v-container{
+    /*300px on the sides at 1920px screen width*/
+    max-width: 80.5rem; 
+    margin: auto;
 }

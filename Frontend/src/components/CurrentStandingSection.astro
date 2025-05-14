@@ -13,7 +13,7 @@ const {TopImageDivisor = 10, BottomImageDivisor = 4} = Astro.props;
 <script type="module" src="/TonySpatola/Scripts/RaiseFadeInEffect.js"></script>
 
 <section id="current-standing" class="vp-section">
-    <div class="container">
+    <div class="v-container container">
         <h2 id="section-title" class="v-title">Current Standings</h2>
         <div class="flex top-content">
             <div id="top-image-wrapper" class="image-wrapper">
@@ -27,7 +27,7 @@ const {TopImageDivisor = 10, BottomImageDivisor = 4} = Astro.props;
             <div id="bottom-image-wrapper" class="image-wrapper">
                 <Image class:list={"v-image-bottom-align"} alt="posing photo" src={TonyRock} width={TonyRock.width / BottomImageDivisor}/>
             </div>
-            <div>
+            <div class="content-wrapper">
                 <p class="v-text fade-raise-element"> As I have slowly grown older, the "country life" has started to wear off. I'm not much of a political individual, but the city life is a perfect match for my modern and progress lifestyle and needs. Eventually I plan on expanding my horizons and rellocating to the big city to tackle opportunities that come my way. </p>
             </div>
         </div>
@@ -103,7 +103,10 @@ const {TopImageDivisor = 10, BottomImageDivisor = 4} = Astro.props;
          25px 25px 0px 50px orange;
     }
 
-
+    /* Applied to both top and bottom content */
+    .content-wrapper{
+        z-index: 1;
+    }
 
     #bottom-image-wrapper::before{
         content: "";
@@ -146,14 +149,12 @@ const {TopImageDivisor = 10, BottomImageDivisor = 4} = Astro.props;
         flex-direction: row-reverse;
     }
 
-    .top-content::after{
-        content: "";
-        display: block;
-        width: 100%;
-        height: inherit;
-        background: blue;
-        border: 2px solid blue;
+    .top-content,
+    .bottom-content{
+        margin-left: 3rem;
+        margin-right: 3rem;
     }
+
 }
 
 </style>
