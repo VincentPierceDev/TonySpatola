@@ -3,51 +3,55 @@ import { getImage } from 'astro:assets';
 import '../css/Utility.css';
 import '../css/ViperGlobal.css';
 
-import LeftHalfTopPhoto from '../assets/TonyPoint.png';
-import RightHalfTopPhoto from '../assets/TonyPoint.png';
-import FullTopPhoto from '../assets/TonyPoint.png';
-import FullBotPhoto from '../assets/TonyPoint.png';
-import LeftHalfBotPhoto from '../assets/TonyPoint.png';
+const {imageAltText = "gallery photo", imageQuality = "high", widthDivisor=2} = Astro.props;
 
-const {imageAltText = "gallery photo", halfImageQuality = "medium", fullImageQuality = "low", widthDivisor=6} = Astro.props;
+import DesktopImage1 from '../assets/Gallery/Thumbnails/Desktop/16x9/GTPhoto-Tony-Swinging-S.jpg';
+import DesktopImage2 from '../assets/Gallery/Thumbnails/Desktop/16x9/GTPhoto-Tony-Swinging-S.jpg';
+import DesktopImage3 from '../assets/Gallery/Thumbnails/Desktop/16x9/GTPhoto-Tony-Swinging-S.jpg';
+import DesktopImage4 from '../assets/Gallery/Thumbnails/Desktop/16x9/GTPhoto-Tony-Swinging-S.jpg';
+import DesktopImage5 from '../assets/Gallery/Thumbnails/Desktop/16x9/GTPhoto-Tony-Swinging-S.jpg';
 
-//these initials coorelate to the imports above
-const LHTP = await getImage({
-	src: LeftHalfTopPhoto,
-	format: "webp",
-	width: LeftHalfTopPhoto.width / widthDivisor,
-    quality: halfImageQuality
-});
+import MobileImage1 from '../assets/Gallery/Thumbnails/Mobile/16x9/MGTPhoto-Tony-Swinging-S.jpg';
+import MobileImage2 from '../assets/Gallery/Thumbnails/Mobile/16x9/MGTPhoto-Tony-Swinging-S.jpg';
+import MobileImage3 from '../assets/Gallery/Thumbnails/Mobile/16x9/MGTPhoto-Tony-Swinging-S.jpg';
+import MobileImage4 from '../assets/Gallery/Thumbnails/Mobile/16x9/MGTPhoto-Tony-Swinging-S.jpg';
+import MobileImage5 from '../assets/Gallery/Thumbnails/Mobile/16x9/MGTPhoto-Tony-Swinging-S.jpg';
 
-const RHTP = await getImage({
-	src: RightHalfTopPhoto,
-	format: "webp",
-	width: RightHalfTopPhoto.width / widthDivisor,
-    quality: halfImageQuality
-})
+const DesktopImageObjects = [DesktopImage1, DesktopImage2, DesktopImage3, DesktopImage4, DesktopImage5];
 
-const FTP = await getImage({
-    src: FullTopPhoto,
-    format: "webp",
-    width: FullTopPhoto.width / widthDivisor,
-    quality: fullImageQuality
-})
+const MobileImageObjects = [MobileImage1, MobileImage2, MobileImage3, MobileImage4, MobileImage5];
 
-const FBP = await getImage({
-    src: FullBotPhoto,
-    format: "webp",
-    width: FullBotPhoto.width / widthDivisor,
-    quality: fullImageQuality
-})
+async function getMobileImages() {
+    return await Promise.all(
+        MobileImageObjects.map(async (img) => {
+            return await getImage({
+                src: img,
+                format: `webp`,
+                width: img.width / widthDivisor,
+                quality: imageQuality,
+            })
+        })
+    )
+}
 
-const LHBP = await getImage({
-	src: LeftHalfBotPhoto,
-	format: "webp",
-	width: LeftHalfBotPhoto.width / widthDivisor,
-    quality: halfImageQuality
-})
+async function getDesktopImages() {
+    return await Promise.all(
+        DesktopImageObjects.map(async (img) => {
+            return await getImage({
+                src: img,
+                format: 'webp',
+                width: img.width / widthDivisor,
+                quality: imageQuality
+            })
+        })
+    )
+}
 
-const images = [LHTP, RHTP, FTP, FBP, LHBP];
+const mobileImgs = await getMobileImages();
+const desktopImgs = await getDesktopImages();
+
+
+const images = desktopImgs;
 ---
 
 <script type="module" src="/TonySpatola/Scripts/RaiseFadeInEffect.js"></script>
@@ -69,20 +73,21 @@ const images = [LHTP, RHTP, FTP, FBP, LHBP];
         </div>
         <div class="bottom-content">
             {
-                images.map((image, index)=>(
-                    <div id={`wrapper-${index}`} class="image-wrapper">
-                        <img class="section-img" src={image.src} alt={imageAltText} loading={"lazy"} width={image.options.width}/>
-                    </div>
+                mobileImgs.map((image, index)=>(
+                    <picture id={`wrapper-${index}`} class="image-wrapper">
+                        <source media="(max-width: 850px)" class="section-img" srcset={image.src} width={image.options.width}/>
+                        <source media="(min-width: 851px)" class="section-img" srcset={desktopImgs[index].src} width={desktopImgs[index].options.width}/>
+                        <img id={`img-${index}`} class="section-img" decoding="async" src={image.src} width={image.options.width}/>
+                    </picture>
                 ))
             }
-            
         </div>
     </div>
 </section>
 
 <style>
     @media(min-width: 0px){
-        
+
         /* Section Styling */
         #home-gallery{
             background: white;
@@ -133,24 +138,46 @@ const images = [LHTP, RHTP, FTP, FBP, LHBP];
             display: grid;
 
             /* Make the rows be the size the pictures need for height*/
-            grid-template-rows: repeat(4, clamp(7.25rem, 16vw, 13.125rem));
+            grid-template-rows: repeat(4, clamp(7.25em, 16vw, 15.125em));
+            grid-template-columns: auto auto;
             row-gap: clamp(.5rem, 5vw, 1.25rem);
             column-gap: clamp(.5rem, 5vw, 1.25rem);
 
             .section-img{
                 width: 100%;
                 height: 100%;
-                aspect-ratio: 1;
             }
 
+            /*hides the simple zoom effect*/
             .image-wrapper{
+                overflow: hidden;
+            }
 
+            .image-wrapper:hover{
+                background: black;
+                outline: 5px solid var(--primary-color);
+                cursor: pointer;
+            }
+
+            .image-wrapper:hover img{
+                scale: 110%;
+                opacity: 80%;
+                transition: .25s scale ease;
+            }
+
+            img{
+                scale: 100%;
+                transition: .25s scale ease;
             }
 
         }
 
         .subheading-color{
             color: var(--body-text-color-dark); 
+        }
+
+        #image-0{
+            aspect-ratio: 16/9;
         }
       
 

@@ -17,18 +17,18 @@ const {TopImageDivisor = 10, BottomImageDivisor = 4} = Astro.props;
         <h2 id="section-title" class="v-title">Current Standings</h2>
         <div class="flex top-content">
             <div id="top-image-wrapper" class="image-wrapper">
-                <Image class:list={"v-image-bottom-align border"} alt="posing photo" src={TonyPoint} width={TonyPoint.width / TopImageDivisor}/>
+                <Image class:list={"v-image-bottom-align image"} alt="posing photo" src={TonyPoint} width={TonyPoint.width / TopImageDivisor}/>
             </div>
             <div class="content-wrapper">
-                <p class="v-text fade-raise-element">Nowadays I remain in my domain and live a simple yet humble life. Currently I help my family out with our house cleaning service. The experience gained from this keeps my spirits high and keeps me pushing forward.</p>
+                <p class="v-text fade-raise-element">Nowadays I remain in my domain and live a simple yet humble life. Currently I help my family out with our house cleaning service. I do not have plans to run the business my entire life and will eventually move on. However, until then, the experience gained from this keeps my spirits high and keeps me pushing forward.</p>
             </div>
         </div>
         <div class="flex flex-reverse bottom-content">
             <div id="bottom-image-wrapper" class="image-wrapper">
-                <Image class:list={"v-image-bottom-align"} alt="posing photo" src={TonyRock} width={TonyRock.width / BottomImageDivisor}/>
+                <Image class:list={"v-image-bottom-align image"} alt="posing photo" src={TonyRock} width={TonyRock.width / BottomImageDivisor}/>
             </div>
             <div class="content-wrapper">
-                <p class="v-text fade-raise-element"> As I have slowly grown older, the "country life" has started to wear off. I'm not much of a political individual, but the city life is a perfect match for my modern and progress lifestyle and needs. Eventually I plan on expanding my horizons and rellocating to the big city to tackle opportunities that come my way. </p>
+                <p class="v-text fade-raise-element"> As I have slowly grown older, the "country life" has started to wear off. I'm not much of a political individual, but the city life is a perfect match for my modern and progressive lifestyle and needs. Eventually I plan on expanding my horizons and rellocating to the big city to tackle opportunities that come my way. </p>
             </div>
         </div>
     </div>
@@ -40,6 +40,7 @@ const {TopImageDivisor = 10, BottomImageDivisor = 4} = Astro.props;
 @media(min-width: 0px){
     #current-standing{
         background: #F7F7F7;
+        margin-bottom: -1px; /* fix the gap caused by the paralax stuff (I think it is?)*/
     }
 
     .container{
@@ -48,8 +49,9 @@ const {TopImageDivisor = 10, BottomImageDivisor = 4} = Astro.props;
         gap: clamp(3.75rem, 7.75vw, 6.25rem);
     }
 
-    h2{
+    #section-title{
         text-align: center;
+        color: var(--accent-color);
     }
 
     /* Applied to both top and bottom content */
@@ -62,11 +64,18 @@ const {TopImageDivisor = 10, BottomImageDivisor = 4} = Astro.props;
 
     /* Applied to both top and bottom content */
     .image-wrapper{
+        display: flex;
         position: relative;
         margin: auto;
-        width: fit-content;
+        width: auto;
         height: 100%;
         z-index: 1;
+    }
+
+    .image{
+        object-fit: cover;
+        max-width: 100%;
+        height: auto;
     }
 
     #top-image-wrapper .border{
@@ -83,9 +92,9 @@ const {TopImageDivisor = 10, BottomImageDivisor = 4} = Astro.props;
         height: auto;
         box-shadow:
          -10px -10px 0px 50px #F7F7F7,
-         -15px -15px 0px 50px orange,
+         -15px -15px 0px 50px var(--accent-color),
          -20px -20px 0px 50px #F7F7F7,
-         -25px -25px 0px 50px orange;
+         -25px -25px 0px 50px var(--accent-color);
     }
 
     #top-image-wrapper::after{
@@ -98,9 +107,9 @@ const {TopImageDivisor = 10, BottomImageDivisor = 4} = Astro.props;
         height: auto;
         box-shadow:
          10px 10px 0px 50px #F7F7F7,
-         15px 15px 0px 50px orange,
+         15px 15px 0px 50px var(--accent-color),
          20px 20px 0px 50px #F7F7F7,
-         25px 25px 0px 50px orange;
+         25px 25px 0px 50px var(--accent-color);
     }
 
     /* Applied to both top and bottom content */
@@ -118,9 +127,9 @@ const {TopImageDivisor = 10, BottomImageDivisor = 4} = Astro.props;
         height: auto;
         box-shadow:
          -10px -10px 0px 50px #F7F7F7,
-         -15px -15px 0px 50px orange,
+         -15px -15px 0px 50px var(--accent-color),
          -20px -20px 0px 50px #F7F7F7,
-         -25px -25px 0px 50px orange;
+         -25px -25px 0px 50px var(--accent-color);
     }
 
     #bottom-image-wrapper::after{
@@ -133,9 +142,9 @@ const {TopImageDivisor = 10, BottomImageDivisor = 4} = Astro.props;
         height: auto;
         box-shadow:
          10px 10px 0px 50px #F7F7F7,
-         15px 15px 0px 50px orange,
+         15px 15px 0px 50px var(--accent-color),
          20px 20px 0px 50px #F7F7F7,
-         25px 25px 0px 50px orange;
+         25px 25px 0px 50px var(--accent-color);
     }
 
 }
@@ -143,18 +152,20 @@ const {TopImageDivisor = 10, BottomImageDivisor = 4} = Astro.props;
 @media(min-width: 768px){
     .flex{
         flex-direction: row;
+        align-items: center;
+        margin-left: 2rem;
+        margin-right: 2rem;
     }
 
     .flex-reverse{
         flex-direction: row-reverse;
     }
+}
 
-    .top-content,
-    .bottom-content{
-        margin-left: 3rem;
-        margin-right: 3rem;
+@media(min-width: 1024px){
+    .flex{
+        margin: 0;
     }
-
 }
 
 </style>

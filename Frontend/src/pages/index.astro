@@ -4,9 +4,8 @@ import Hero from "../components/HomeHero.astro";
 import BasicSection from "../components/EarlyLifeSection.astro";
 import CurrentStandingSection from "../components/CurrentStandingSection.astro";
 import HomeGallery from "../components/HomeGallery.astro";
+import '../css/ViperGlobal.css';
 ---
-
-
 
 <PageLayout title="My Story" description="Everything that defines me!">
 	<Hero/>
@@ -14,9 +13,6 @@ import HomeGallery from "../components/HomeGallery.astro";
 		<div class="paralax-container">
 			<CurrentStandingSection/>
 			<HomeGallery/>
-		</div>
-		<div class="spacer">
-			
 		</div>
 </PageLayout>
 
@@ -36,6 +32,14 @@ import HomeGallery from "../components/HomeGallery.astro";
 		left: 0;
 		top: 500%;
 		z-index: 0;
+	  }
+
+	  .cta-container{
+		margin-top: -10rem;
+	  }
+
+	  h3{
+		text-align: center;
 	  }
     }
 

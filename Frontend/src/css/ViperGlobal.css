@@ -88,3 +88,9 @@ body {
     max-width: 80.5rem; 
     margin: auto;
 }
+
+@media (max-width: 768px){
+    .v-container{
+        max-width: 35rem;
+    }
+}
