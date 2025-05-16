@@ -11,7 +11,7 @@ const {title, description} = Astro.props;
 		<!-- MOVE TO PROPER FILE -->
 		<!-- ADD "frame-ancestors 'self';" AND "upgrade-insecure-requests" to CSP -->
 		<!-- <meta http-equiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload"/> --->
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-84rk0bDIHDf/R66UrX/SgqfQhoaM4xhSZ1fWNbs8f1I='; style-src 'self' 'unsafe-inline'; font-src 'self'; media-src 'self';"/>
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-84rk0bDIHDf/R66UrX/SgqfQhoaM4xhSZ1fWNbs8f1I=' 'sha256-WN0hqek1jEauhlhWVVXeQPa5BD3f0rsMdmwSZtw1Cys='; style-src 'self' 'unsafe-inline'; font-src 'self'; media-src 'self';"/>
 		
 		<meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin"/>
 		<meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp"/>
