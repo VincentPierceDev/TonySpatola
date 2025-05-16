@@ -5,7 +5,10 @@ import BasicSection from "../components/EarlyLifeSection.astro";
 import CurrentStandingSection from "../components/CurrentStandingSection.astro";
 import HomeGallery from "../components/HomeGallery.astro";
 import '../css/ViperGlobal.css';
+import FullImage from '../components/SelectedImage';
 ---
+
+<script type="module" src="/TonySpatola/Scripts/ImageToggle.js"></script>
 
 <PageLayout title="My Story" description="Everything that defines me!">
 	<Hero/>
@@ -14,6 +17,7 @@ import '../css/ViperGlobal.css';
 			<CurrentStandingSection/>
 			<HomeGallery/>
 		</div>
+		<FullImage client:load/>
 </PageLayout>
 
 <style>

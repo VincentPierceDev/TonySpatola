@@ -3,8 +3,6 @@ import { getImage } from 'astro:assets';
 import '../css/Utility.css';
 import '../css/ViperGlobal.css';
 
-import FullImage from './SelectedImage.astro';
-
 const {imageAltText = "gallery photo", imageQuality = "high", widthDivisor=2} = Astro.props;
 
 import DesktopImage1 from '../assets/Gallery/Thumbnails/Desktop/16x9/GTPhoto-Tony-Swinging-S.jpg';
@@ -54,9 +52,7 @@ const desktopImgs = await getDesktopImages();
 ---
 
 <script type="module" src="/TonySpatola/Scripts/RaiseFadeInEffect.js"></script>
-<script type="module" src="/TonySpatola/Scripts/ImageToggle.js"></script>
 
-<FullImage/>
 <section id="home-gallery" class="vp-section">
     <div class="v-container container">
         <div class="top-content fade-raise-element">
