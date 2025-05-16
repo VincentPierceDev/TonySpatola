@@ -24,10 +24,10 @@ function SelectImage(event){
 
 function SetImageSource(event){
     const clickedBorderID = event.target.parentElement.id;
-    const constructedPath = '../src/assets/Gallery/GPhoto' + clickedBorderID.substring(8) + 'Full.jpg';
+    const ImageOffset = Number(clickedBorderID.substring(8)) + 1;
+    const constructedPath = '/TonySpatola/GalleryPhotos/GPhoto' + ImageOffset + 'Full.webp';
 
-    document.getElementById('display-image-photo').setAttribute('src', constructedPath);
-   
+    window.dispatchEvent(new CustomEvent("updateImage", {detail: constructedPath}));
 }
 
 function CloseButton(event){
