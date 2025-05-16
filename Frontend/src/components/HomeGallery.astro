@@ -74,7 +74,7 @@ const desktopImgs = await getDesktopImages();
                     <picture id={`wrapper-${index}`} class="gallery-image-wrapper">
                         <source media="(max-width: 850px)" class="section-img" srcset={image.src} width={image.options.width}/>
                         <source media="(min-width: 851px)" class="section-img" srcset={desktopImgs[index].src} width={desktopImgs[index].options.width}/>
-                        <img id={`img-${index}`} class="section-img" decoding="async" src={image.src} width={image.options.width}/>
+                        <img id={`img-${index}`} class="section-img" decoding="async" src={image.src} width={image.options.width} alt="Gallery photo"/>
                     </picture>
                 ))
             }
