@@ -1,20 +1,191 @@
 ---
+import { getImage } from "astro:assets";
 import PageLayout from "../layouts/PageLayout.astro";
 import Header from "../components/PageHero.astro";
+
+/* MSI - Mom Section Image */
+import MSIDesktop from '../assets/TonyPoint.png';
+import MSIMobile from '../assets/TonyPoint.png';
+
+const MSIDObj = await getImage({
+	src: MSIDesktop,
+	width: MSIDesktop.width / 2,
+	format: "webp",
+	quality: "max"
+});
+
+const MSIMObj = await getImage({
+	src: MSIMobile,
+	width: MSIMobile.width / 2,
+	format: "webp",
+	quality: "max"
+});
+
+/* DSI - Dad Section Image */
+import DSIDesktop from '../assets/TonyPoint.png';
+import DSIMobile from '../assets/TonyPoint.png';
+
+const DSIDObj = await getImage({
+	src: DSIDesktop,
+	width: DSIDesktop.width / 2,
+	format: "webp",
+	quality: "max"
+});
+
+const DSIMObj = await getImage({
+	src: DSIMobile,
+	width: DSIMobile.width / 2,
+	format: "webp",
+	quality: "max"
+});
+
+/* GSI - Grandma Section Image */
+import GSIDesktop from '../assets/TonyPoint.png';
+import GSIMobile from '../assets/TonyPoint.png';
+
+const GSIDObj = await getImage({
+	src: GSIDesktop,
+	width: GSIDesktop.width / 2,
+	format: "webp",
+	quality: "max"
+});
+
+const GSIMObj = await getImage({
+	src: GSIMobile,
+	width: GSIMobile.width / 2,
+	format: "webp",
+	quality: "max"
+});
 ---
 
 
 <PageLayout title="Family" description="The story behind my close relatives">
 	<Header title="The Family"/>
-	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque doloribus, tempore voluptatum unde sequi nihil quasi consequatur animi voluptatem est error illo voluptate quod obcaecati earum magnam, praesentium fuga dolor aperiam quibusdam? Placeat laboriosam obcaecati iure dolorum! Ducimus expedita aliquam consequuntur? Deleniti explicabo nemo illo ut consequatur ex distinctio nobis porro, sint quasi, voluptatem vel commodi reiciendis nesciunt aliquid quaerat rerum dolorem iure facere amet corrupti. Eius suscipit neque at earum sunt eligendi itaque quisquam doloribus, recusandae facilis cumque incidunt! Laboriosam mollitia minima voluptas, debitis ipsum enim deserunt error, in id et, accusantium dicta nesciunt? Ipsam culpa, quas ratione, nemo dignissimos ipsa harum, vitae consectetur voluptatum voluptate possimus saepe laudantium cumque perferendis nisi est. Voluptas aliquid maiores quos eum suscipit neque quas alias veritatis dolorem minus quibusdam odio, iste sed architecto omnis quod ut reprehenderit magnam explicabo nam? Quo adipisci quod dolore necessitatibus optio voluptatibus itaque sequi. Quasi alias asperiores blanditiis amet, molestiae praesentium nihil obcaecati cumque rerum reprehenderit ad iure nobis nemo, voluptatem eligendi delectus consequatur nostrum qui! Obcaecati nihil hic ducimus maiores illum itaque sequi qui? Doloribus placeat est sunt quas fugiat! Molestiae odio debitis iusto aspernatur quibusdam dolorem iste consequatur dolorum, laborum fugiat quisquam facilis voluptatem ea vero modi, laboriosam incidunt porro tempore quis recusandae consectetur? Molestiae corrupti, excepturi nam reprehenderit provident ratione tenetur similique eos non nihil ea fugit perferendis porro minima cum soluta aliquid qui quasi accusantium. Aspernatur illum odio, quasi tempora commodi dolorem eius officiis ullam facilis consequatur repudiandae possimus ut suscipit consectetur ea ipsum! Ipsa deleniti, consequatur voluptates doloremque perferendis incidunt explicabo odio necessitatibus laudantium sunt minus fugiat repudiandae vitae placeat natus, saepe facilis soluta in dolor! Assumenda necessitatibus deleniti delectus perspiciatis esse exercitationem minima. Ab dignissimos ipsam quasi velit! Recusandae quaerat voluptatem aut odio at aperiam. Expedita enim asperiores sed accusantium debitis illo obcaecati alias, quaerat, necessitatibus eos delectus tempora! Impedit tenetur blanditiis quaerat natus aut rem molestiae accusantium, ipsa aspernatur ea, facere minus quasi commodi quidem quam optio facilis soluta ducimus! Eum sequi eos, possimus provident pariatur vel quos itaque ipsum facere ratione accusamus voluptatem velit repellat totam iusto facilis mollitia impedit, esse architecto exercitationem amet error alias deleniti qui. Ut et a quae, dicta iusto accusamus sed cumque delectus enim aliquam quod nam, praesentium dolor inventore, accusantium maiores eaque error non consequatur autem dolorum quaerat tempora officiis. Natus aperiam possimus hic, saepe neque maiores tempora aliquam quasi eligendi recusandae voluptates ad pariatur voluptatibus voluptas, veniam tempore dolor. At, cupiditate. Quo quibusdam autem fugiat ab voluptate placeat quis voluptatem eum numquam, beatae distinctio, at in! Ab, molestiae fuga dolorem optio consequuntur in! Perspiciatis cupiditate voluptate, aliquam repellat, accusantium rem dicta ea omnis quaerat, alias soluta tempore asperiores quod assumenda voluptatum doloremque blanditiis! Asperiores quia quaerat, doloremque ab quam architecto sunt nesciunt iste reprehenderit labore porro deserunt nobis distinctio commodi? Eveniet unde sint sed, ratione nisi cumque, corporis ad expedita doloremque in nesciunt quos minus nemo corrupti laborum nobis! Cumque, quidem sapiente! Hic quidem minus tempora obcaecati at rem labore porro debitis!</p>
+	<section id="section-1">
+		<div class="v-container">
+			<h2 class="v-title">Mom</h2>
+			<div class="section-content">
+				<p class="v-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum alias expedita laboriosam iste, ipsum ipsa placeat voluptate quam voluptatem ea sapiente eum eveniet minus error nam voluptates labore sit quasi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, blanditiis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus delectus debitis nostrum at dolorum magni culpa ex molestias ab necessitatibus illum praesentium numquam suscipit temporibus nisi consequatur molestiae labore, voluptatum quia, porro aut dolore? Accusamus aspernatur assumenda quaerat iure eveniet placeat quisquam nam? Minus aliquam eligendi dolore corrupti facilis iste.</p>
+				<div class="image-wrapper">
+					<picture>
+						<source style="(max-width: 768px)" srcset={MSIMObj.src}/>
+						<source style="(min-width: 769px)" srcset={MSIDObj.src}/>
+						<img class="section-image" src={MSIMObj.src} alt="photo of my mom" decoding="async" loading="lazy"/>
+					</picture>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="section-2">
+		<div class="v-container">
+			<h2 class="v-title title-reverse">Dad</h2>
+			<div class="section-content-reverse">
+				<p class="v-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum alias expedita laboriosam iste, ipsum ipsa placeat voluptate quam voluptatem ea sapiente eum eveniet minus error nam voluptates labore sit quasi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, blanditiis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus delectus debitis nostrum at dolorum magni culpa ex molestias ab necessitatibus illum praesentium numquam suscipit temporibus nisi consequatur molestiae labore, voluptatum quia, porro aut dolore? Accusamus aspernatur assumenda quaerat iure eveniet placeat quisquam nam? Minus aliquam eligendi dolore corrupti facilis iste.</p>
+				<div class="image-wrapper">
+					<picture>
+						<source style="(max-width: 768px)" srcset={DSIMObj.src}/>
+						<source style="(min-width: 769px)" srcset={DSIDObj.src}/>
+						<img class="section-image" src={DSIMObj.src} alt="photo of my mom" decoding="async" loading="lazy"/>
+					</picture>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="section-2">
+		<div class="v-container">
+			<h2 class="v-title">Nanny</h2>
+			<div class="section-content">
+				<p class="v-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum alias expedita laboriosam iste, ipsum ipsa placeat voluptate quam voluptatem ea sapiente eum eveniet minus error nam voluptates labore sit quasi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, blanditiis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus delectus debitis nostrum at dolorum magni culpa ex molestias ab necessitatibus illum praesentium numquam suscipit temporibus nisi consequatur molestiae labore, voluptatum quia, porro aut dolore? Accusamus aspernatur assumenda quaerat iure eveniet placeat quisquam nam? Minus aliquam eligendi dolore corrupti facilis iste.</p>
+				<div class="image-wrapper">
+					<picture>
+						<source style="(max-width: 768px)" srcset={GSIMObj.src}/>
+						<source style="(min-width: 769px)" srcset={GSIDObj.src}/>
+						<img class="section-image" src={GSIMObj.src} alt="photo of my mom" decoding="async" loading="lazy"/>
+					</picture>
+				</div>
+			</div>
+		</div>
+	</section>
 </PageLayout>
 
 <style>
+	
 	p{
-		background: #F7F7F7;
+		padding: 1rem;
+		line-height: 1.5;
+		padding-bottom: 2rem;
+	}
+
+	h2{
 		padding: 1rem;
 		padding-top: 2rem;
 		padding-bottom: 2rem;
 		line-height: 1.5;
+	}
+
+	h2{
+		color: var(--accent-color);
+		text-decoration: underline;
+		text-decoration-thickness: .5rem;
+		text-decoration-color: var(--highlight-color);
+		text-transform: uppercase;
+	}
+
+	.title-reverse{
+		text-align: right;
+	}
+
+	#section-1,
+	#section-2{
+		background: #F7F7F7;
+	}
+
+	.section-content{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.section-content-reverse{
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+	}
+
+	.image-wrapper{
+		width: 20%;
+		height: 100%;
+	}
+
+	.section-image{
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+		vertical-align: bottom;
+	}
+
+	@media(max-width: 850px)
+	{
+		.section-content{
+			flex-direction: column-reverse;
+		}
+
+		.section-content-reverse{
+			flex-direction: column-reverse;
+		}
+
+		.image-wrapper{
+			margin: auto;
+			height: 20rem;
+			width: auto;
+		}
+
+		h2{
+			text-align: center;
+		}
+
+		.title-reverse{
+			text-align: center;
+		}
 	}
 </style>
