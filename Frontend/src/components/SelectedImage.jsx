@@ -3,7 +3,7 @@ import '../css/SelectedImage.css';
 
 const SelectedImage = () => {
 
-    const [currentImage, setCurrentImage] = useState("../src/assets/Gallery/GPhoto1Full.webp");
+    const [currentImage, setCurrentImage] = useState("/TonySpatola/GalleryPhotos/GPhoto1Full.webp");
 
     useEffect(() => {
         const handler = (e) => {

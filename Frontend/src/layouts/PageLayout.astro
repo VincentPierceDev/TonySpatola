@@ -1,8 +1,9 @@
 ---
 import NavBar from "../components/NavBar.astro";
+import '../css/ViperGlobal.css';
 
 const currentPath = Astro.url.pathname;
-const {title, description} = Astro.props;
+const {title, description, offset=false} = Astro.props;
 ---
 
 <!doctype html>
@@ -34,8 +35,16 @@ const {title, description} = Astro.props;
 		<main>
 			<slot/>
 		</main>
-		<footer>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid suscipit quibusdam asperiores ad facere ipsa iusto adipisci cupiditate nam, nobis, unde vel dicta similique aspernatur. Unde neque eveniet doloremque necessitatibus.</p>
+		<footer class={offset ? "offset" : ""}>
+			<ul>
+				<li><a href="/TonySpatola/" class="v-subheading-text">My Story</a></li>
+				<li><a href="/TonySpatola/Interests" class="v-subheading-text">Interests</a></li>
+				<li><a href="/TonySpatola/Family" class="v-subheading-text">La Familia</a></li>
+				<li><a href="/TonySpatola/Gallery" class="v-subheading-text">Gallery</a></li>
+			</ul>
+			<div class="cc-container">
+				<span class="v-subheading-text">&copy; 2025 Tony Spatola. Developed by Vincent Pierce. All rights reserved.</span>
+			</div>
 		</footer>
 	</body>
 </html>
@@ -48,4 +57,32 @@ const {title, description} = Astro.props;
 		z-index: 999;
 		top: 0;
 	}
+
+	.offset{
+		margin-top: clamp(-8rem, -5vw, 3rem);
+	}
+
+	ul{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		gap: 2rem;
+		list-style: none;
+	}
+
+	a{
+		text-decoration: none;
+		color: white;
+	}
+
+	.cc-container{
+		width: 100%;
+		text-align: center;
+		margin-top: 5px;
+	}
+
+	span{
+		color: #F7F7F7;
+	}
+
 </style>

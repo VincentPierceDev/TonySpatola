@@ -1,8 +1,152 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
+import Header from "../components/PageHero.astro";
+import { getImage } from "astro:assets";
+
+/* TSI - Top Section Image */
+import TSIDesktop from '../assets/TonyPoint.png';
+import TSIMobile from '../assets/TonyPoint.png';
+
+const TSIDObj = await getImage({
+	src: TSIDesktop,
+	width: TSIDesktop.width / 2,
+	format: "webp",
+	quality: "max"
+});
+
+const TSIMObj = await getImage({
+	src: TSIMobile,
+	width: TSIMobile.width / 2,
+	format: "webp",
+	quality: "max"
+});
+
+import BSIDesktop from '../assets/TonyPoint.png';
+import BSIMobile from '../assets/TonyPoint.png';
+
+const BSIDObj = await getImage({
+	src: BSIDesktop,
+	width: BSIDesktop.width / 2,
+	format: "webp",
+	quality: "max"
+});
+
+const BSIMObj = await getImage({
+	src: BSIMobile,
+	width: BSIMobile.width / 2,
+	format: "webp",
+	quality: "max"
+})
 ---
 
 
-<PageLayout title="My Story" description="Everything that defines me!">
-	<p>Interst Page</p>
+<PageLayout title="Interests" description="Description of my hobbies and interests as they have changed over time">
+	<Header title="Interests"/>
+	<section class="interest-section float-fix">
+		<div class="v-container">
+			<h2 class="v-title">Hobbies</h2>
+			<div class="section-content">
+				<div id="top-image-wrapper" class="img-wrapper">
+					<picture>
+						<source style="(max-width: 768px)" srcset={TSIDObj.src}/>
+						<source style="(min-width: 769px)" srcset={TSIMObj.src}/>
+						<img class="interest-image" src={TSIMObj.src} alt="interest photo" decoding="async" loading="lazy"/>
+					</picture>
+				</div>
+				<p class="p-text top-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos quisquam mollitia ad fuga quasi totam voluptatem aut ratione! Explicabo earum laudantium iure quasi beatae molestiae perspiciatis deserunt aliquam, ut vel incidunt voluptatem odio, similique sit deleniti voluptate soluta vero, sunt ea repellendus eius officia impedit? Possimus obcaecati reprehenderit odit officia amet, suscipit tempora cupiditate sed! Aperiam perferendis repellat nulla doloremque ea dolore praesentium, vero temporibus natus tempore voluptatem doloribus illum. Consectetur soluta nobis dolore error, quam architecto delectus aliquid reprehenderit vero eius aliquam deserunt perferendis laudantium ex adipisci blanditiis illo vel ipsam, asperiores unde provident at? Facere earum autem vero perspiciatis rem debitis consequatur, fugit nemo cum quas eaque aspernatur animi sapiente itaque harum voluptas, laborum nostrum illo culpa est deserunt voluptatem. Repudiandae sit quibusdam itaque, aspernatur rem ab doloremque error aliquid blanditiis maiores temporibus ad excepturi exercitationem at? Unde facilis itaque atque dignissimos, aspernatur sint beatae minus placeat neque commodi voluptatibus, odio voluptas? Soluta iusto nulla quam nisi deleniti accusantium dolores ab corporis. Libero accusantium inventore eveniet corrupti, nisi soluta quisquam ipsa porro eum. Autem non, officiis aperiam dolores, facilis deserunt excepturi similique, quidem dolorem magnam praesentium voluptates ducimus illo. Laudantium itaque error adipisci nobis mollitia molestiae veritatis eaque voluptatem, laboriosam libero, quasi velit porro accusantium iure optio. Perferendis reprehenderit odio quas iste in, sequi deleniti cumque. Nihil aut quisquam beatae nesciunt! Consectetur facere facilis voluptate illo ipsum ex quasi tenetur iusto quia, quae, odit explicabo quaerat magni sit dolore deleniti beatae sequi in, commodi aspernatur. Enim corporis eius unde nesciunt ducimus ad quod tenetur consectetur facilis dolores debitis temporibus, at culpa. Soluta eligendi nesciunt dicta fugiat, inventore, vel suscipit, quibusdam eum nisi modi quia nobis veritatis tempore dolor temporibus labore ipsum? Est vel quam in recusandae? Quo incidunt, natus excepturi velit reiciendis corrupti nobis aliquam nam nemo doloremque tenetur, expedita tempore nostrum veritatis corporis temporibus? Pariatur, rem, iste animi a adipisci labore exercitationem molestiae sed, in dolore veritatis saepe minima consequuntur. Recusandae adipisci eius, nobis rem voluptas esse molestiae eos, laudantium facilis doloremque dolore alias praesentium soluta impedit consectetur quo distinctio earum blanditiis. Ipsum accusamus ipsa est illo, dicta maiores reiciendis fuga. Quam fugiat, repellat labore cum in optio debitis dolor accusantium sunt sequi velit consectetur eveniet ex laudantium nobis eligendi similique pariatur, deserunt recusandae quaerat quibusdam consequuntur porro, magni quisquam. Deserunt facilis ad nihil illo ea tempore explicabo, voluptatum vitae commodi necessitatibus in qui sequi odit. Excepturi magnam ad in officia ullam facere odit libero, nulla laudantium, maxime atque architecto aspernatur error voluptatibus cupiditate perspiciatis sunt! A, laborum hic corporis, quas officia aliquid, inventore mollitia molestiae iste voluptatum consequuntur dignissimos minima ab delectus quidem quod nam. Sed porro ipsa pariatur vero eaque eius fugit facere inventore, expedita possimus, eos repellendus animi eligendi adipisci sapiente molestias laboriosam cumque temporibus ipsum impedit. Totam possimus dolores eveniet molestias, culpa doloremque delectus et voluptate quam iure quia non vero sunt at vel error ut, perspiciatis nam fugiat iste impedit ullam maiores sit officiis. Quisquam cupiditate assumenda at deserunt blanditiis. Nesciunt, saepe!</p>
+			</div>
+		</div>
+	</section>
+	<section class="interest-section float-fix">
+		<div class="v-container">
+			<h2 class="v-title">Entertainment</h2>
+			<div class="section-content-reverse">
+				<div id="bottom-image-wrapper" class="img-wrapper">
+					<picture>
+						<source style="(max-width: 768px)" srcset={BSIDObj.src}/>
+						<source style="(min-width: 769px)" srcset={BSIMObj.src}/>
+						<img class="interest-image" src={BSIMObj.src} alt="interest photo" decoding="async" loading="lazy"/>
+					</picture>
+				</div>
+				<p class="p-text bottom-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque unde, adipisci inventore laudantium culpa eos amet excepturi quidem id itaque quibusdam nobis autem labore voluptatibus laboriosam delectus odit! Animi similique quis sequi iure impedit alias dignissimos accusantium doloribus ipsam ratione officiis nisi perferendis voluptatibus deserunt praesentium consequuntur, corrupti illum, error voluptatem ex modi quasi optio aliquam quod! Mollitia dignissimos quaerat suscipit inventore labore, explicabo reprehenderit, asperiores qui et, vitae consequuntur ratione autem consequatur veritatis voluptatem! Quaerat, animi explicabo nobis, porro beatae quis, laborum rerum pariatur dolores eaque ea aliquam illum harum? Maiores quae delectus et. Repudiandae dolores natus architecto fugiat saepe officia ab nesciunt porro, voluptatibus ipsam deleniti minima nisi dolor, at, voluptates esse cum. Dolores earum eos cupiditate tenetur. Harum ad id maxime, eaque magni consequatur natus itaque minus autem inventore perspiciatis tempora porro laborum? Ducimus maiores facilis suscipit officiis? Impedit consectetur facere minus, error dolor modi earum dicta veniam, itaque deleniti ipsam. Harum illo ipsa eligendi, eaque possimus quod dicta dignissimos facere necessitatibus enim, ratione, a pariatur numquam obcaecati est alias nostrum. Sequi illum quasi ut dolorem fuga itaque iusto. Dolorem veniam, vitae voluptas molestiae quos, accusamus nisi adipisci reiciendis vel nobis laudantium tenetur hic possimus ad voluptatibus repellendus, omnis sit ipsam blanditiis cupiditate enim inventore. Hic perferendis cupiditate, quidem libero corrupti suscipit excepturi veniam a consequuntur reiciendis quis ad soluta aut tenetur totam, rem eaque id! Eius praesentium sit facilis amet sequi officia neque voluptas ea suscipit fugit doloribus similique cupiditate vel error est vero ipsa odio, ab veritatis quisquam? Eligendi cum voluptas animi asperiores tempora architecto alias ipsa, quibusdam explicabo quo cumque aperiam illum nam. Nam, laudantium? Temporibus sunt accusamus impedit in consequatur voluptas mollitia officia sequi voluptate repudiandae fugit repellat expedita corporis, nesciunt minus aliquam facere perferendis nemo laborum quis sit similique nihil necessitatibus iste. Recusandae vel, distinctio est quod incidunt nisi quam, voluptate repellat quas blanditiis et nobis consectetur reprehenderit aperiam fuga iusto corrupti error pariatur voluptatem iure. Deserunt, quia perferendis iure tenetur facere ea, accusantium eaque aut alias maxime exercitationem soluta aspernatur dolorem similique, vero saepe excepturi? Magnam asperiores molestias sapiente quae facere eum maxime reprehenderit voluptate odit velit quam quos non, blanditiis odio, quaerat assumenda nulla, optio fuga minima ab deleniti sint dolores! Consequatur deserunt eveniet earum facilis, praesentium reprehenderit quod sunt accusantium magnam vero, consequuntur, fuga expedita distinctio! Eos impedit omnis commodi, porro assumenda similique soluta voluptatem laboriosam delectus deserunt unde natus ipsa. Molestias ut mollitia necessitatibus, vitae deserunt magnam nobis molestiae amet eveniet aperiam incidunt nihil, reprehenderit impedit provident suscipit recusandae minus ipsum placeat eligendi tempore ratione perferendis! Accusamus excepturi, totam consectetur impedit quisquam quam laborum tempore at commodi aspernatur deleniti obcaecati esse atque ipsum provident deserunt nostrum, explicabo voluptas. Velit, earum nihil! Rem veritatis accusantium labore, ad laudantium nisi ratione? Sit error quas nam fugiat, doloribus optio nisi architecto iste, nesciunt provident eum nulla laborum, laboriosam exercitationem pariatur? Nihil minima, beatae mollitia natus accusantium sunt, iusto laudantium quasi commodi odit, iure ea expedita eveniet dolorum illum perferendis! Dolores, non!</p>
+			</div>
+		</div>
+	</section>
 </PageLayout>
+
+<style>
+
+	.interest-section{
+		position: relative;
+		background: #F7F7F7;
+		width: 100%;
+		height: fit-content;
+	}
+
+	.top-text, .bottom-text, h2{
+		padding-left: 1rem;
+		padding-right: 1rem;
+		padding-bottom: 2rem;
+	}
+
+	.top-text, h2{
+		background: #F7F7F7;
+		padding-top: 2rem;
+	}
+
+	.p-text{
+		font-family: var(--primary-font);
+		font-size: var(--body-font-size);
+		line-height: 1.5;
+		letter-spacing: normal;
+		text-wrap: pretty;
+		width: 100%;
+	}
+
+	h2{
+		color: var(--accent-color);
+		text-decoration: underline;
+		text-decoration-thickness: .5rem;
+		text-decoration-color: var(--highlight-color);
+	}
+
+	.img-wrapper{
+		height: 30rem;
+		width: auto;
+	}
+
+	#top-image-wrapper{
+		padding-right: 1rem;
+		margin-left: 1rem;
+		float: right;
+	}
+
+	#bottom-image-wrapper{
+		padding-left: 1rem;
+		margin-right: 1rem;
+		float: left;
+	}
+
+	.interest-image{
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+		vertical-align: bottom;
+	}
+
+	@media(max-width: 768px)
+	{
+		.section-content,
+		.section-content-reverse
+		{
+			flex-direction: column-reverse;
+		}
+
+		.img-wrapper{
+			float: none;
+			width: 90%;
+			align-self: center;
+		}
+	}
+
+</style>
